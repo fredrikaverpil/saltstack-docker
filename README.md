@@ -30,7 +30,7 @@ Run the containers:
 
 Enter the salt-master:
 
-    docker exec -it salt_master /bin/bash
+    docker exec -it salt /bin/bash
 
 Accept key from minion (you may have to wait a minute before the minion shows up):
 
