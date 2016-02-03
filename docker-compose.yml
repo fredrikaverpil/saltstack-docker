@@ -1,0 +1,34 @@
+version: 2
+
+services:
+  image:
+    build: salt
+    image: fredrikaverpil/saltstack:1.0
+    container_name: salt_master_image 
+
+  master:
+    image: fredrikaverpil/saltstack:1.0
+    container_name: salt_master
+    hostname: salt-master
+    ports:
+      - "4505:4505"
+      - "4506:4506"
+    volumes:
+      - ./salt/assets/master/etc/salt:/etc/salt
+      - ./salt/assets/master/var/cache/salt:/var/cache/salt
+      - ./salt/assets/master/var/logs/salt:/var/logs/salt
+      - ./salt/assets/master/srv/salt:/srv/salt
+    command: /usr/bin/salt-master --log-file=/var/logs/salt/salt-master.log --log-file-level=debug
+
+  minion:
+    image: fredrikaverpil/saltstack:1.0
+    container_name: salt_minion
+    hostname: salt-minion
+    ports:
+      - "14505:4505"
+      - "14506:4506"
+    volumes:
+      - ./salt/assets/minion/etc/salt:/etc/salt
+      - ./salt/assets/minion/var/cache/salt:/var/cache/salt
+      - ./salt/assets/minion/var/logs/salt:/var/logs/salt
+    command: /usr/bin/salt-minion --log-file=/var/logs/salt/salt-minion.log --log-file-level=debug
