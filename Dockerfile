@@ -14,7 +14,10 @@ RUN yum clean expire-cache
 RUN yum update -y
 
 # Network tools for debugging
-RUN yum install -y net-tools nmap
+RUN yum install -y net-tools nmap git
+RUN yum install -y epel-release
+RUN yum install -y python-pip
+RUN pip install GitPython
 
 # Salt and prerequisites
 RUN yum install -y salt-master salt-minion salt-ssh salt-syndic salt-cloud virt-what

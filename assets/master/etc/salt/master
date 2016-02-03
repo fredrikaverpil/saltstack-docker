@@ -1,2 +1,5 @@
 interface: 0.0.0.0
 max_open_files: 100000
+file_roots:
+  base:
+    - /salt/states
