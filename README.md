@@ -32,7 +32,7 @@ Enter the salt-master:
 
     docker exec -it salt_master /bin/bash
 
-Accept key from minion:
+Accept key from minion (you may have to wait a minute before the minion shows up):
 
     salt-key
     salt-key --accept-all
