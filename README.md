@@ -1,14 +1,17 @@
 # saltstack-docker
-Saltstack running in CentOS 7 Docker container
+Saltstack running in [CentOS 7](https://www.centos.org) [Docker](https://www.docker.com) container.
 
-### Quickstart
+### Prerequisites
 
-Prerequisites:
-
-This requires Docker 1.10 with Compose 1.6. Check your versions:
+This requires [Docker 1.10](https://github.com/docker/docker/releases) with [Compose 1.6](https://github.com/docker/compose/releases). Check your versions:
 
     docker --version
     docker-compose --version
+
+Please note, you can download the [latest Docker Toolbox](https://github.com/docker/toolbox/releases) to get the latest versions.
+
+
+### Quickstart
 
 Download:
 
@@ -19,7 +22,6 @@ Download:
 Verify IP address of your Docker host and edit `assets/minion/etc/salt/minion` accordingly:
 
     docker-machine ip default
-
 
 Run the containers:
 
