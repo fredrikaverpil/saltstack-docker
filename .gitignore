@@ -1,1 +1,5 @@
+# Exclude
 assets/
+
+# Include
+!*.sls
