@@ -39,7 +39,7 @@ Accept key from minion (you may have to wait a minute before the minion shows up
 
 ## States
 
-    States are defined in `assets/master/salt/states`.
+States are defined in `assets/master/salt/states`.
 
 
 ### Windows 
