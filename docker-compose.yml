@@ -22,8 +22,8 @@ services:
 
   minion:
     image: fredrikaverpil/saltstack:1.0
-    container_name: salt_minion
-    hostname: salt-minion
+    container_name: salt_minion # prevents scaling
+    hostname: salt-minion # should be removed if scaling
     ports:
       - "14505:4505"
       - "14506:4506"
