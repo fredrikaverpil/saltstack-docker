@@ -47,7 +47,7 @@ Test if all minions can be pinged:
 
 ## States
 
-States are defined in `assets/master/srv/salt` which maps to `/srv/salt` on the salt master. Right now, there's a simle setup in place where the `top.sls` file dictates the following:
+States are defined in `assets/master/srv/salt` which maps to `/srv/salt` on the salt master. Right now, there's a simple setup in place where the `top.sls` file dictates the following:
 
 - all minions should be equipped with `git` (see `core.sls`)
 - all minions _running Windows_ should be equipped with `vlc` (see `repos/windows.sls`)
