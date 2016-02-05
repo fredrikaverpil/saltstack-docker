@@ -1,4 +1,4 @@
-version: 2
+version: "2"
 
 services:
   image:
@@ -18,7 +18,6 @@ services:
       - ./assets/master/var/cache/salt:/var/cache/salt
       - ./assets/master/var/logs/salt:/var/logs/salt
       - ./assets/master/srv/salt:/srv/salt
-      - ./assets/master/salt:/salt
     command: /usr/bin/salt-master --log-file=/var/logs/salt/salt-master.log --log-file-level=debug
 
   minion:
