@@ -31,7 +31,7 @@ Pull the Docker image (see [Dockerhub repository](https://hub.docker.com/r/fredr
 
     docker-compose build
 
-Run the containers (will download the Docker image if you did not build in previous step):
+Run the containers (will build the Docker image if you did not pull or build in previous steps):
 
     docker-compose up
 
