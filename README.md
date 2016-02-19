@@ -23,7 +23,11 @@ Verify IP address of your Docker host and edit `assets/minion/etc/salt/minion` a
 
     docker-machine ip default
 
-Build the Docker image (optional):
+Pull the Docker image (see [Dockerhub repository](https://hub.docker.com/r/fredrikaverpil/saltstack/tags/) for available images):
+
+    docker pull fredrikaverpil/saltstack:2015.8.7
+
+...or build the image from scratch:
 
     docker-compose build
 
