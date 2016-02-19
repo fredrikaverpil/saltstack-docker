@@ -3,11 +3,11 @@ version: "2"
 services:
   image:
     build: .
-    image: fredrikaverpil/saltstack:1.0
+    image: fredrikaverpil/saltstack:2015.8.5
     container_name: salt_image
 
   master:
-    image: fredrikaverpil/saltstack:1.0
+    image: fredrikaverpil/saltstack:2015.8.5
     container_name: salt
     hostname: salt
     ports:
@@ -21,7 +21,7 @@ services:
     command: /usr/bin/salt-master --log-file=/var/logs/salt/salt-master.log --log-file-level=debug
 
   minion:
-    image: fredrikaverpil/saltstack:1.0
+    image: fredrikaverpil/saltstack:2015.8.5
     container_name: minion # prevents scaling
     hostname: minion # should be removed if scaling
     ports:
