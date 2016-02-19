@@ -23,9 +23,12 @@ Verify IP address of your Docker host and edit `assets/minion/etc/salt/minion` a
 
     docker-machine ip default
 
-Run the containers:
+Build the Docker image (optional):
 
     docker-compose build
+
+Run the containers (will download the Docker image if you did not build in previous step):
+
     docker-compose up
 
 Enter the salt-master:
@@ -50,7 +53,7 @@ Test if all minions can be pinged:
 States are defined in `assets/master/srv/salt` which maps to `/srv/salt` on the salt master. Right now, there's a simple setup in place where the `top.sls` file dictates the following:
 
 - all minions should be equipped with `git` (see `core.sls`)
-- all minions _running Windows_ should be equipped with `vlc` (see `repos/windows.sls`)
+- all minions _running Windows_ should be equipped with `FileZilla` (see `repos/windows.sls`)
 - all minions _running RedHat (or CentOS)_ should be equipped with `net-tools` (see `repos/centos.sls`)
 
 
@@ -71,8 +74,13 @@ Please read more here: https://docs.saltstack.com/en/latest/topics/windows/windo
 You can debug the minion running Windows by checking the logfile at `C:\salt\var\log\salt\minion`.
 
 
-### Apply the states
+### Apply states
+
+Apply the highstate:
 
     salt '*' state.highstate test=true # first just test it
     salt "*" state.highstate # then apply it
 
+Apply a single state:
+
+    salt -G 'os:windows' state.apply repos.windows
