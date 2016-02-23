@@ -14,11 +14,12 @@ services:
       - "4505:4505"
       - "4506:4506"
     volumes:
+      - ./assets/master/etc/supervisor:/etc/supervisor
       - ./assets/master/etc/salt:/etc/salt
       - ./assets/master/var/cache/salt:/var/cache/salt
-      - ./assets/master/var/logs/salt:/var/logs/salt
+      - ./assets/master/var/log/salt:/var/log/salt
       - ./assets/master/srv:/srv
-    command: /usr/bin/salt-master --log-file=/var/logs/salt/salt-master.log --log-file-level=debug
+    command: /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
   minion:
     image: fredrikaverpil/saltstack:2015.8.7
@@ -30,5 +31,5 @@ services:
     volumes:
       - ./assets/minion/etc/salt:/etc/salt
       - ./assets/minion/var/cache/salt:/var/cache/salt
-      - ./assets/minion/var/logs/salt:/var/logs/salt
-    command: /usr/bin/salt-minion --log-file=/var/logs/salt/salt-minion.log --log-file-level=debug
+      - ./assets/minion/var/log/salt:/var/log/salt
+    command: /usr/bin/salt-minion --log-file=/var/log/salt/salt-minion.log --log-file-level=debug

@@ -14,14 +14,22 @@ RUN yum clean expire-cache
 RUN yum update -y
 
 # Salt and prerequisites
-RUN yum install -y salt-master salt-minion salt-ssh salt-syndic salt-cloud virt-what
+RUN yum install -y salt-master \
+                   salt-minion \
+                   salt-ssh    \
+                   salt-syndic \
+                   salt-cloud  \
+                   virt-what
 
 # Additional tools
 RUN yum install -y epel-release
-RUN yum install -y python-pip
+RUN yum install -y python-pip net-tools nmap git
 RUN pip install --upgrade pip
 RUN pip install GitPython
-RUN yum install -y net-tools nmap git nano vim
+
+# Supervisor
+RUN pip install supervisor
+RUN mkdir -p /var/log/supervisor
 
 # Ports to expose
 EXPOSE 4505
