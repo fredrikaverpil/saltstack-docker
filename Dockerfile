@@ -14,12 +14,13 @@ RUN yum clean expire-cache && \
     yum update -y && \
 
     # Salt and prerequisites
-    yum install -y salt-master \
-                   salt-minion \
-                   salt-ssh    \
-                   salt-syndic \
-                   salt-cloud  \
-                   virt-what && \
+    yum install -y salt-master  \
+                   salt-minion  \
+                   salt-ssh     \
+                   salt-syndic  \
+                   salt-cloud   \
+                   virt-what    \
+                   dmidecode && \
 
     # Additional tools
     yum install -y epel-release && \
