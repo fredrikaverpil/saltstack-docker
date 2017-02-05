@@ -5,10 +5,10 @@ RUN rpm --import https://repo.saltstack.com/yum/redhat/7/x86_64/latest/SALTSTACK
 RUN touch /etc/yum.repos.d/saltstack.repo && \
     echo "[saltstack-repo]" >> /etc/yum.repos.d/saltstack.repo && \
     echo "name=SaltStack repo for RHEL/CentOS \$releasever" >> /etc/yum.repos.d/saltstack.repo  && \
-    echo "baseurl=https://repo.saltstack.com/yum/redhat/\$releasever/\$basearch/archive/2016.11.1" >> /etc/yum.repos.d/saltstack.repo && \
+    echo "baseurl=https://repo.saltstack.com/yum/redhat/\$releasever/\$basearch/archive/2016.11.2" >> /etc/yum.repos.d/saltstack.repo && \
     echo "enabled=1" >> /etc/yum.repos.d/saltstack.repo && \
     echo "gpgcheck=1" >> /etc/yum.repos.d/saltstack.repo && \
-    echo "gpgkey=https://repo.saltstack.com/yum/redhat/\$releasever/\$basearch/archive/2016.11.1/SALTSTACK-GPG-KEY.pub" >> /etc/yum.repos.d/saltstack.repo
+    echo "gpgkey=https://repo.saltstack.com/yum/redhat/\$releasever/\$basearch/archive/2016.11.2/SALTSTACK-GPG-KEY.pub" >> /etc/yum.repos.d/saltstack.repo
 
 RUN yum clean expire-cache && \
     yum update -y && \
